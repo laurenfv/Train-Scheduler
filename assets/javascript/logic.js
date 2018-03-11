@@ -25,7 +25,7 @@ var config = {
       name: trainName,
       destination: trainDestination,
       time: trainTime,
-      min: trainMin
+      frequency: trainFrequency
     };
   
     // Uploads train data to the database
@@ -45,10 +45,10 @@ var config = {
   });
 
   //adds table row to html
-  function addRowToTable(table, cell1, cell2, cell3, cell4) {
+  function addRowToTable(table, cell1, cell2, cell3) {
     var row;
-    row = "<tr><td>" + cell1 + "</td><td>" + cell2 + "</td><td>" + cell3 + "</td><td>" + cell4 + "</td></tr>";
-    //TO DO add cell5 for time away
+    row = "<tr><td>" + cell1 + "</td><td>" + cell2 + "</td><td>" + cell3 + "</td></tr>";
+    //TO DO add cell5 for next arrival and minutes away
     //row = "<tr><td>" + cell1 + "</td><td>" + cell2 + "</td><td>" + cell3 + "</td><td>" + cell4 + "</td><td>" + cell5 + "</td></tr>";
     table.append(row);
     }
@@ -61,15 +61,13 @@ var config = {
     // store everything into a variable.
     var trainName = childSnapshot.val().name;
     var trainDestination = childSnapshot.val().destination;
-    var trainTime = childSnapshot.val().time;
-    var trainMin = childSnapshot.val().min;
+    var trainFrequency = childSnapshot.val().min;
   
     // train info
     console.log(trainName);
     console.log(trainDestination);
-    console.log(trainTime);
-    console.log(trainMin);
+    console.log(trainFrequency);
 
-    addRowToTable($("#table-body"), trainName, trainDestination, trainTime, trainMin);
+    addRowToTable($("#table-body"), trainName, trainDestination, trainFrequency);
   
   });
