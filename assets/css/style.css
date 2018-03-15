@@ -1,5 +1,6 @@
 body {
     background-image: url("../images/texture.jpg");
+    background-size: 100%;
 }
 
 div.col-lg-12 {
